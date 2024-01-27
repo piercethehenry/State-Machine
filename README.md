@@ -37,8 +37,8 @@ For more detailed information, refer to the code comments in statemachine.lua.
 Examples 🌈
 Here's a simple example of using the State Machine:
 
-lua
-Copy code
+```lua
+
 -- Initialize the state machine
 local myStateMachine = stateMachine.init()
 
@@ -53,6 +53,8 @@ end)
 
 -- Shift to a state
 myStateMachine:shift_state("Idle")
+```
+
 Contributing 🤝
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
