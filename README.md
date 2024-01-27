@@ -22,16 +22,33 @@ The State Machine is designed to be simple yet flexible. Here's how you can get 
 
 Initializing a State Machine
 
+```lua
 local myStateMachine = stateMachine.init()
+myStateMachine --> {
+    CurrentState: BOOLEAN,
+    States: TABLE,
+    Exists: BOOLEAN (INTERNAL)
+  }
+```
 Creating a State
 
 ```lua
-myStateMachine:create_state("StateName", function() 
-    -- State logic here
-end, {condition1 = true, condition2 = false})
-Shifting States
 
-myStateMachine:shift_state("StateName")
+-- Defining a state
+myStateMachine:create_state("StateName", function(s) 
+     print(s._name)
+end, {
+    on_active = function(s)
+        print(s._name, 'is active!')
+    end,
+    on_exit = function(s)
+        print(s._name, 'exited!')
+    end
+})
+
+-- Shifting States
+
+myStateMachine:shift_state("StateName") -- The current state will be shifted and will continously run StateName's ._init callback.
 ```
 For more detailed information, refer to the code comments in statemachine.lua.
 Examples 🌈
@@ -67,7 +84,7 @@ License 📄
 Distributed under the MIT License. See LICENSE for more information.
 
 Contact 📧
-Your Name - @YourTwitter - email@example.com
+Discord: henry.zf
 
 Project Link: https://github.com/yourusername/statemachine
 
