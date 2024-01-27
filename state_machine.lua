@@ -201,3 +201,5 @@ function StateMachine:remove_state(index: string)
 		state:remove()
 	end
 end 
+
+return StateMachine
